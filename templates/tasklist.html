@@ -1,0 +1,10 @@
+{{ define "tasklist" }}
+
+<h1>{{ .Name }}</h1>
+<ul>
+    {{ range .Tasks }}
+    <li>{{ .Name }} - Fait? {{if .Done}}Oui{{else}}Non{{end}}</li>
+    {{ end }}
+</ul>
+
+{{ end }}

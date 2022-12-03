@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>{{ if ne .Name ""}}Hi, {{ .Name }}{{ else }}Introduce Yourself!{{end}} | DEMO</title>
+</head>
+
+<body>
+{{ if ne .Name "" }}
+    <h1>Hi, {{.Name}}!</h1>
+
+    <h2>What you told me:</h2>
+    <div><span>AGE:</span> {{.Age}}</div>
+    <div><span>LIKES GO:</span> {{if .LikesGo}}Yep!! (are you okay?){{else}}Nope...{{end}}</div>
+    <div><span>LIKES NETWORKS:</span> {{if .LikesNetwork}}Yep!! (that's kinda nice){{else}}Nope... (too bad...){{end}}</div>
+
+    <form action="/form" method="POST">
+        <input type="hidden" name="reset" value="reset" >
+        <input type="submit" value="Reset" >
+    </form>
+
+{{ else }}
+    <h1>Hi, who are you ?</h1>
+    <form action="/form" method="POST">
+        <label for="name">NAME:
+            <input type="text" name="name" id="name" required>
+        </label>
+        <label for="age">AGE:
+            <input type="number" name="age" min="15" max="99" required>
+        </label>
+        <label for="go">DO YOU LIKE GOLANG?
+            <input type="radio" name="go" id="go" value="dislikes" checked> No
+            <input type="radio" name="go" id="go" value="likes"> Yes
+        </label>
+        <label for="network">DO YOU LIKE NETWORK COURSES?
+            <input type="radio" name="network" id="network" value="dislikes" checked> No
+            <input type="radio" name="network" id="network" value="likes"> Yes
+        </label>
+        <input type="submit" value="Send">
+    </form>
+{{ end }}
+
+</body>
+</html>

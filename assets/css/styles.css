@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+html, body {
+    padding: 20px;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ececec;
+    background-color: #131313;
+}
+
+form {
+    padding: 15px 0 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+form input[type="submit"] {
+    margin-top: 10px;
+    max-width: fit-content;
+}
+h2 {
+    margin: 10px 0;
+}
